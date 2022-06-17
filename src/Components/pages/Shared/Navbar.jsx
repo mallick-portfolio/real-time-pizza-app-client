@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { HiMenuAlt2 } from "react-icons/hi";
 const Navbar = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   return (
     <>
       {/* Tab and Desktop menu */}
@@ -67,6 +67,9 @@ const menus = (
     </li>
     <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
       <a href="/">Login</a>
+    </li>
+    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+      <img className="bg-primary px-4 cursor-pointer rounded-full py-1" src={cart} alt="" />
     </li>
   </>
 );

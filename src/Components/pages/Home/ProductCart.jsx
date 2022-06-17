@@ -1,5 +1,4 @@
 import React from "react";
-import { HiPlus } from 'react-icons/hi';
 const ProductCart = ({ pizza }) => {
   const { image, name, size, price } = pizza;
   return (
@@ -7,9 +6,9 @@ const ProductCart = ({ pizza }) => {
       <img className="w-28 mx-auto mb-4" src={image} alt="" />
       <h3 className="text-xl sm:text-2xl text-center font-semibold">{name}</h3>
       <h3 className="text-xs sm:text-sm text-center uppercase">{size}</h3>
-      <div className="sm:flex justify-between items-center">
-        <h3 className="font-bold sm:w-1/2 w-full text-sm sm:text-3xl text-center">${price}</h3>
-        <div className="text-xl sm:w-1/2 w-full cursor-pointer px-2  border-primary border rounded-full hover:text-white hover:bg-primary smooth text-center my-4 sm:my-0">
+      <div className="sm:flex justify-between mt-4 items-center">
+        <h3 className="font-bold sm:w-1/2 w-full text-xl sm:text-3xl text-center">${price}</h3>
+        <div className="text-xl sm:w-1/2 w-full cursor-pointer px-2  border-primary border rounded-full hover:text-white hover:bg-primary smooth text-center my-2 sm:my-0">
           <span className="font-bold">+</span> Add
         </div>
       </div>
