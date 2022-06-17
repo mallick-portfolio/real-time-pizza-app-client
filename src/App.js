@@ -1,12 +1,12 @@
-import './App.css';
-import Home from './Components/pages/Home/Home.jsx';
-import Navbar from './Components/pages/Shared/Navbar.jsx';
+import "./App.css";
+import Navbar from "./Components/pages/Shared/Navbar.jsx";
+import AllRoutes from "./Components/routes/AllRoutes.jsx";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Home />
+      <AllRoutes />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import cart from "../../../assets/img/cart.png";
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [show, setShow] = useState(true);
   return (
@@ -11,9 +12,9 @@ const Navbar = () => {
       {/* Tab and Desktop menu */}
       <div className="hidden sm:block">
         <nav className="flex justify-between items-start container py-4">
-          <div>
+          <Link to={"/"}>
             <img className="ml-4 sm:ml-0" src={logo} alt="" />
-          </div>
+          </Link>
           <div>
             <ul className="sm:flex items-center">{menus}</ul>
           </div>
@@ -38,16 +39,16 @@ const Navbar = () => {
               {mobileMenu}
             </ul>
           </div>
-          <div>
+          <Link to={"/"}>
             <img className="w-16" src={logo} alt="" />
-          </div>
-          <div>
+          </Link>
+          <Link to={"/cart"}>
             <img
               className="bg-primary px-2 rounded-full py-1"
               src={cart}
               alt=""
             />
-          </div>
+          </Link>
         </nav>
       </div>
     </>
@@ -69,7 +70,13 @@ const menus = (
       <a href="/">Login</a>
     </li>
     <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <img className="bg-primary px-4 cursor-pointer rounded-full py-1" src={cart} alt="" />
+      <Link to={"/cart"}>
+        <img
+          className="bg-primary px-4 cursor-pointer rounded-full py-1"
+          src={cart}
+          alt=""
+        />
+      </Link>
     </li>
   </>
 );
