@@ -1,12 +1,14 @@
-import React from 'react'
-import Banner from './Banner.jsx'
+import React from "react";
+import Banner from "./Banner.jsx";
+import Products from "./Products.jsx";
 
 const Home = () => {
   return (
-    <div className='container'>
-     <Banner />
+    <div className="container">
+      <Banner />
+      <Products />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

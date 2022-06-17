@@ -1,0 +1,98 @@
+[
+  {
+    "_id": 1,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 2,
+    "name": "singu pizza",
+    "size": "large",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 3,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 4,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 5,
+    "name": "singu pizza",
+    "size": "large",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 6,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 7,
+    "name": "singu pizza",
+    "size": "medium",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 8,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "detroit",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 9,
+    "name": "singu pizza",
+    "size": "large",
+    "category": "neapolitan",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 10,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "greek",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 11,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "sicilian",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  },
+  {
+    "_id": 12,
+    "name": "singu pizza",
+    "size": "small",
+    "category": "chicago",
+    "price": 250,
+    "image": "https://i.ibb.co/zVbq909/pizza.png"
+  }
+]
