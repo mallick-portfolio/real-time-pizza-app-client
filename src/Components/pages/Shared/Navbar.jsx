@@ -23,15 +23,19 @@ const Navbar = () => {
       <div className="block sm:hidden container my-4">
         <nav className="flex justify-between items-start">
           <div>
-            <div className="ml-6" onClick={() => setShow(!show)}>
-              {show ? <AiOutlineMenu /> : <HiMenuAlt2 />}
+            <div className="" onClick={() => setShow(!show)}>
+              {show ? (
+                <AiOutlineMenu className="text-xl hover:text-primary" />
+              ) : (
+                <HiMenuAlt2 className="text-xl hover:text-primary" />
+              )}
             </div>
             <ul
-              className={`sm:flex items-center smooth absolute ${
-                show ? "-top-40 left-4" : "top-10 left-4"
+              className={`sm:flex items-center py-4 rounded-lg bg-[#fb723b] ml-6 smooth absolute z-50 ${
+                show ? "-top-40 -left-2" : "top-10 -left-2"
               }`}
             >
-              {menus}
+              {mobileMenu}
             </ul>
           </div>
           <div>
@@ -62,6 +66,22 @@ const menus = (
       <a href="/">Register</a>
     </li>
     <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+      <a href="/">Login</a>
+    </li>
+  </>
+);
+const mobileMenu = (
+  <>
+    <li className="my-1 sm:my-0 px-6 smooth text-white">
+      <a href="/">Menu</a>
+    </li>
+    <li className="my-1 sm:my-0 px-6 smooth text-white">
+      <a href="/">Offers</a>
+    </li>
+    <li className="my-1 sm:my-0 px-6 smooth text-white">
+      <a href="/">Register</a>
+    </li>
+    <li className="my-1 sm:my-0 px-6 smooth text-white">
       <a href="/">Login</a>
     </li>
   </>

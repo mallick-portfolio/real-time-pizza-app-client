@@ -1,10 +1,10 @@
 import React from 'react'
-import Navbar from './Navbar.jsx'
+import Banner from './Banner.jsx'
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
+    <div className='container'>
+     <Banner />
     </div>
   )
 }

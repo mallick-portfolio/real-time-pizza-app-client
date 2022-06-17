@@ -11,14 +11,15 @@ module.exports = {
         "2xl": "6rem",
       },
     },
-    colors: {
-      primary: "#FE5F1E",
-      primaryhover: "#b23301",
-      secondary: "#F8F8F8",
-      accent: "#232323",
-      nutral: "#ccc",
+    extend: {
+      colors: {
+        primary: "#FE5F1E",
+        primaryhover: "#b23301",
+        secondary: "#F8F8F8",
+        accent: "#232323",
+        nutral: "#ccc",
+      },
     },
-    extend: {},
   },
   plugins: [],
 };
