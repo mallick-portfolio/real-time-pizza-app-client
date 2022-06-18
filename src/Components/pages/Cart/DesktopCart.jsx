@@ -1,10 +1,15 @@
 import React from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa";
-
+import { useDispatch } from "react-redux";
 import cart from "../../../assets/img/cart-black.png";
 import emptycart from "../../../assets/img/empty-cart.png";
+import {
+  incrementQuantity,
+  decrementQuantity,
+} from "../../../store/CartSlice/CartSlice.js";
 const DesktopCart = ({ userOrders }) => {
+  const dispatch = useDispatch();
   return (
     <section className="bg-[#eee9e9] py-24 sm:block hidden">
       <div className="container">
@@ -28,16 +33,23 @@ const DesktopCart = ({ userOrders }) => {
                   </div>
                 </div>
                 <div className="flex items-center ">
-                  <button className="text-xl  cursor-pointer px-4 py-1   border rounded-full text-white hover:bg-primaryhover bg-primary smooth text-center my-4">
+                  <button
+                    onClick={() => dispatch(incrementQuantity(order?._id))}
+                    className="text-xl  cursor-pointer px-4 py-1   border rounded-full text-white hover:bg-primaryhover bg-primary smooth text-center my-4"
+                  >
                     <BsPlusLg />
                   </button>
+
                   <input
                     readOnly
                     type="text"
                     value={order?.quantity}
                     className="focus:outline-none w-1/6 text-center"
                   />
-                  <button className="text-xl  cursor-pointer px-4 py-1   border rounded-full text-white hover:bg-primaryhover bg-primary smooth text-center my-4">
+                  <button
+                    onClick={() => dispatch(decrementQuantity(order?._id))}
+                    className="text-xl  cursor-pointer px-4 py-1   border rounded-full text-white hover:bg-primaryhover bg-primary smooth text-center my-4"
+                  >
                     <FaMinus />
                   </button>
                 </div>
