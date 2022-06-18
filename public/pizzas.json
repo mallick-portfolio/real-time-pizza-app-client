@@ -5,6 +5,7 @@
     "size": "small",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -13,6 +14,7 @@
     "size": "large",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -21,6 +23,7 @@
     "size": "small",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -29,6 +32,7 @@
     "size": "small",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -37,6 +41,7 @@
     "size": "large",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -45,6 +50,7 @@
     "size": "small",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -53,6 +59,7 @@
     "size": "medium",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -61,6 +68,7 @@
     "size": "small",
     "category": "detroit",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -69,6 +77,7 @@
     "size": "large",
     "category": "neapolitan",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -77,6 +86,7 @@
     "size": "small",
     "category": "greek",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -85,6 +95,7 @@
     "size": "small",
     "category": "sicilian",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   },
   {
@@ -93,6 +104,7 @@
     "size": "small",
     "category": "chicago",
     "price": 250,
+    "quantity": 1,
     "image": "https://i.ibb.co/zVbq909/pizza.png"
   }
 ]

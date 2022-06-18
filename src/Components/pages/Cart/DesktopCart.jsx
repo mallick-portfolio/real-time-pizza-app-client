@@ -34,7 +34,7 @@ const DesktopCart = ({ userOrders }) => {
                   <input
                     readOnly
                     type="text"
-                    value={4}
+                    value={order?.quantity}
                     className="focus:outline-none w-1/6 text-center"
                   />
                   <button className="text-xl  cursor-pointer px-4 py-1   border rounded-full text-white hover:bg-primaryhover bg-primary smooth text-center my-4">
@@ -49,14 +49,16 @@ const DesktopCart = ({ userOrders }) => {
                 </div>
               </div>
             </div>
-            <div className="text-right">
-              Total{" "}
-              {userOrders.reduce(function (accumulator, item) {
-                return accumulator + item.price;
-              }, 0)}
-            </div>
           </>
         ))}
+      </div>
+      <div className="text-right container">
+        <h2 className="text-2xl">
+          Total = $
+          {userOrders.reduce(function (accumulator, item) {
+            return accumulator + item.price;
+          }, 0)}
+        </h2>
       </div>
       {!userOrders && (
         <div>

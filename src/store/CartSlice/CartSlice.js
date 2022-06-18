@@ -8,7 +8,12 @@ export const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     addproduct: (state, action) => {
-      state.product = [...state.product, action.payload];
+      const item = state.product.find((pro) => pro._id === action.payload._id);
+      if (item) {
+        item.quantity = parseInt(item.quantity) + 1;
+      } else {
+        state.product.push(action.payload);
+      }
     },
   },
 });
