@@ -34,7 +34,7 @@ const Navbar = () => {
               <li className="ml-6 my-1 relative sm:my-0 hover:text-primary smooth">
                 <Link to={"/cart"}>
                   {orders.length ? (
-                    <span class="absolute right-1 top-1 rounded-full bg-white w-5 h-5 top right p-0 m-0 text-primary font-mono text-sm  leading-snug text-center">
+                    <span className="absolute right-1 top-1 rounded-full bg-white w-5 h-5 top right p-0 m-0 text-primary font-mono text-sm  leading-snug text-center">
                       {orders?.length ? orders?.length : ""}
                     </span>
                   ) : (

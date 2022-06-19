@@ -1,49 +1,92 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/img/logo.png";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init.js";
 const Register = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+ 
+
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+  };
+  console.log();
   return (
-    <div class="relative flex flex-col justify-center overflow-hidden">
-      <div class="w-full p-6 m-auto bg-white border-t border-primary rounded shadow-lg shadow-primary/50 lg:max-w-md">
-        <h1 class="text-3xl font-semibold text-center text-primary">
+    <div className="relative flex flex-col justify-center overflow-hidden">
+      <div className="w-full p-6 m-auto bg-white border-t border-primary rounded shadow-lg shadow-primary/80 lg:max-w-md">
+        <h1 className="text-3xl font-semibold text-center text-primary">
           <img className="mx-auto" src={logo} alt="" />
         </h1>
-
-        <form class="mt-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
           <div>
-            <label for="email" class="block text-sm text-gray-800">
+            <label htmlFor="name" className="block text-sm text-gray-800">
+              Name
+            </label>
+            <input
+              {...register("name", { required: true })}
+              type="text"
+              className="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
+            />
+          </div>
+          <div className="mt-4">
+            <label htmlFor="email" className="block text-sm text-gray-800">
               Email
             </label>
             <input
+              {...register("email", { required: true })}
               type="email"
-              class="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <div class="mt-4">
+          <div className="mt-4">
             <div>
-              <label for="password" class="block text-sm text-gray-800">
+              <label htmlFor="password" className="block text-sm text-gray-800">
                 Password
               </label>
               <input
+                {...register("password", {
+                  required: true,
+                  minLength: {
+                    value: 8,
+                    message: "Password must be greater than 8 character",
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: "Password must be less than 15 character",
+                  },
+                })}
                 type="password"
-                class="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
               />
+              <p className="text-red-500">
+                {errors.password && errors.password.message}
+              </p>
             </div>
-            <a href="/" class="text-xs text-gray-600 hover:underline">
-              Forget Password?
-            </a>
-            <div class="mt-6">
-              <button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:bg-primary">
+
+            <div className="mt-6">
+              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:bg-primary">
                 Login
               </button>
             </div>
           </div>
         </form>
-        <p class="mt-8 text-xs font-light text-center text-gray-700">
+        <p className="mt-8 text-xs font-light text-center text-gray-700">
           {" "}
-          Don't have an account?{" "}
-          <a href="/" class="font-medium text-primary hover:underline">
-            Sign up
-          </a>
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            className="font-medium text-primary hover:underline"
+          >
+            Sign In
+          </Link>
         </p>
       </div>
     </div>
