@@ -5,7 +5,9 @@ import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const orders = useSelector((state) => state.cart.product);
   const [show, setShow] = useState(true);
   return (
     <>
@@ -16,7 +18,36 @@ const Navbar = () => {
             <img className="ml-4 sm:ml-0" src={logo} alt="" />
           </Link>
           <div>
-            <ul className="sm:flex items-center">{menus}</ul>
+            <ul className="sm:flex items-center">
+              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                <a href="/">Menu</a>
+              </li>
+              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                <a href="/">Offers</a>
+              </li>
+              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                <a href="/">Register</a>
+              </li>
+              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                <a href="/">Login</a>
+              </li>
+              <li className="ml-6 my-1 relative sm:my-0 hover:text-primary smooth">
+                <Link to={"/cart"}>
+                  {orders.length ? (
+                    <span class="absolute right-1 top-1 rounded-full bg-white w-5 h-5 top right p-0 m-0 text-primary font-mono text-sm  leading-snug text-center">
+                      {orders?.length ? orders?.length : ""}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                  <img
+                    className="bg-primary px-4 cursor-pointer rounded-full py-1"
+                    src={cart}
+                    alt=""
+                  />
+                </Link>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
@@ -36,13 +67,27 @@ const Navbar = () => {
                 show ? "-top-40 -left-2" : "top-10 -left-2"
               }`}
             >
-              {mobileMenu}
+              <li className="my-1 sm:my-0 px-6 smooth text-white">
+                <a href="/">Menu</a>
+              </li>
+              <li className="my-1 sm:my-0 px-6 smooth text-white">
+                <a href="/">Offers</a>
+              </li>
+              <li className="my-1 sm:my-0 px-6 smooth text-white">
+                <a href="/">Register</a>
+              </li>
+              <li className="my-1 sm:my-0 px-6 smooth text-white">
+                <a href="/">Login</a>
+              </li>
             </ul>
           </div>
           <Link to={"/"}>
             <img className="w-16" src={logo} alt="" />
           </Link>
           <Link to={"/cart"}>
+            <span className="absulate top-0 right-0">
+              {orders?.length ? orders?.length : ""}
+            </span>
             <img
               className="bg-primary px-2 rounded-full py-1"
               src={cart}
@@ -55,45 +100,4 @@ const Navbar = () => {
   );
 };
 
-const menus = (
-  <>
-    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <a href="/">Menu</a>
-    </li>
-    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <a href="/">Offers</a>
-    </li>
-    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <a href="/">Register</a>
-    </li>
-    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <a href="/">Login</a>
-    </li>
-    <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-      <Link to={"/cart"}>
-        <img
-          className="bg-primary px-4 cursor-pointer rounded-full py-1"
-          src={cart}
-          alt=""
-        />
-      </Link>
-    </li>
-  </>
-);
-const mobileMenu = (
-  <>
-    <li className="my-1 sm:my-0 px-6 smooth text-white">
-      <a href="/">Menu</a>
-    </li>
-    <li className="my-1 sm:my-0 px-6 smooth text-white">
-      <a href="/">Offers</a>
-    </li>
-    <li className="my-1 sm:my-0 px-6 smooth text-white">
-      <a href="/">Register</a>
-    </li>
-    <li className="my-1 sm:my-0 px-6 smooth text-white">
-      <a href="/">Login</a>
-    </li>
-  </>
-);
 export default Navbar;
