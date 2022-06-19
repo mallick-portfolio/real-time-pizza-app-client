@@ -5,7 +5,7 @@ import ProductCart from "./ProductCart.jsx";
 
 const Products = () => {
   const { isLoading, data: pizzas } = useQuery("repoData", () =>
-    fetch("pizzas.json").then((res) => res.json())
+    fetch("http://localhost:5000/pizzas").then((res) => res.json())
   );
   if (isLoading) {
     return <Loading />

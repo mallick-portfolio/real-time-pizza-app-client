@@ -8,32 +8,38 @@ export const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     addproduct: (state, action) => {
-      const item = state.product.find((pro) => pro._id === action.payload._id);
+      const item = state.product.find(
+        (pro) => pro.productId === action.payload.productId
+      );
       if (item) {
         item.quantity = parseInt(item.quantity) + 1;
+        item.totalprice = parseFloat(item.price) * parseInt(item.quantity);
       } else {
         state.product.push(action.payload);
       }
     },
     incrementQuantity: (state, action) => {
-      const item = state.product.find((pro) => pro._id === action.payload);
-      console.log(item);
+      const item = state.product.find(
+        (pro) => pro.productId === action.payload
+      );
       if (item) {
         item.quantity = parseInt(item.quantity) + 1;
-        item.price = parseInt(item.quantity) * parseInt(item.price);
+        item.totalprice = parseFloat(item.price) * parseInt(item.quantity);
       }
     },
     decrementQuantity: (state, action) => {
-      const item = state.product.find((pro) => pro._id === action.payload);
-      console.log(item);
+      const item = state.product.find(
+        (pro) => pro.productId === action.payload
+      );
       if (item) {
         if (item.quantity <= 1) {
           const updatedItem = state.product.filter(
-            (pro) => pro._id !== action.payload
+            (pro) => pro.productId !== action.payload
           );
           state.product = updatedItem;
         } else {
           item.quantity = parseInt(item.quantity) - 1;
+          item.totalprice = parseFloat(item.totalprice) - parseInt(item.price);
         }
       }
     },
