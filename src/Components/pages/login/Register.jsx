@@ -1,24 +1,37 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/img/logo.png";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init.js";
+import Loading from "../Shared/Loading.jsx";
 const Register = () => {
+  const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updatingerror] = useUpdateProfile(auth);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
- 
-
+  if (loading || updating) {
+    return <Loading />;
+  }
+  if (error || updatingerror) {
+    console.log(error || updatingerror);
+  }
+  if (user) {
+    navigate("/");
+  }
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
   };
-  console.log();
   return (
     <div className="relative flex flex-col justify-center overflow-hidden">
       <div className="w-full p-6 m-auto bg-white border-t border-primary rounded shadow-lg shadow-primary/80 lg:max-w-md">
@@ -52,6 +65,7 @@ const Register = () => {
                 Password
               </label>
               <input
+                
                 {...register("password", {
                   required: true,
                   minLength: {
@@ -64,7 +78,7 @@ const Register = () => {
                   },
                 })}
                 type="password"
-                className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-4 py-2 mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40"
               />
               <p className="text-red-500">
                 {errors.password && errors.password.message}
