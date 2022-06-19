@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import Loading from "../Shared/Loading.jsx";
 import ProductCart from "./ProductCart.jsx";
 
 const Products = () => {
@@ -7,7 +8,7 @@ const Products = () => {
     fetch("pizzas.json").then((res) => res.json())
   );
   if (isLoading) {
-    return;
+    return <Loading />
   }
   return (
     <div className="mb-24">

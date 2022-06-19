@@ -6,9 +6,21 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init.js";
+import Loading from "./Loading.jsx";
+import { signOut } from "firebase/auth";
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+
   const orders = useSelector((state) => state.cart.product);
   const [show, setShow] = useState(true);
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    console.log(error);
+  }
   return (
     <>
       {/* Tab and Desktop menu */}
@@ -25,12 +37,21 @@ const Navbar = () => {
               <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
                 <a href="/">Offers</a>
               </li>
-              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-                <Link to="/register">Register</Link>
-              </li>
-              <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-                <Link to="/login">Login</Link>
-              </li>
+              {!user?.email && (
+                <>
+                  <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                    <Link to="/register">Register</Link>
+                  </li>
+                  <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                    <Link to="/login">Login</Link>
+                  </li>
+                </>
+              )}
+              {user?.email && (
+                <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
+                  <button onClick={() => signOut(auth)}>Log Out</button>
+                </li>
+              )}
               <li className="ml-6 my-1 relative sm:my-0 hover:text-primary smooth">
                 <Link to={"/cart"}>
                   {orders.length ? (
@@ -73,21 +94,34 @@ const Navbar = () => {
               <li className="my-1 sm:my-0 px-6 smooth text-white">
                 <a href="/">Offers</a>
               </li>
-              <li className="my-1 sm:my-0 px-6 smooth text-white">
-                <Link to="/register">Register</Link>
-              </li>
-              <li className="my-1 sm:my-0 px-6 smooth text-white">
-                <Link to="/login">Login</Link>
-              </li>
+              {!user?.email && (
+                <>
+                  <li className="my-1 sm:my-0 px-6 smooth text-white">
+                    <Link to="/register">Register</Link>
+                  </li>
+                  <li className="my-1 sm:my-0 px-6 smooth text-white">
+                    <Link to="/login">Login</Link>
+                  </li>
+                </>
+              )}
+              {user?.email && (
+                <li className="my-1 sm:my-0 px-6 smooth text-white">
+                  <button onClick={() => signOut(auth)}>Log Out</button>
+                </li>
+              )}
             </ul>
           </div>
           <Link to={"/"}>
             <img className="w-16" src={logo} alt="" />
           </Link>
           <Link to={"/cart"}>
-            <span className="absulate top-0 right-0">
-              {orders?.length ? orders?.length : ""}
-            </span>
+            {orders.length ? (
+              <span className="absolute right-4 top-2 rounded-full bg-primaryhover w-5 h-5 top right p-0 m-0 text-white font-mono text-sm  leading-snug text-center">
+                {orders?.length ? orders?.length : ""}
+              </span>
+            ) : (
+              ""
+            )}
             <img
               className="bg-primary px-2 rounded-full py-1"
               src={cart}
