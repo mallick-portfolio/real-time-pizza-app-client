@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../../assets/img/logo.png";
-const Login = () => {
+const Register = () => {
   return (
     <div class="relative flex flex-col justify-center overflow-hidden">
       <div class="w-full p-6 m-auto bg-white border-t border-primary rounded shadow-lg shadow-primary/50 lg:max-w-md">
@@ -50,4 +50,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

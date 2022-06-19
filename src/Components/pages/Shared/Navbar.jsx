@@ -26,7 +26,7 @@ const Navbar = () => {
                 <a href="/">Offers</a>
               </li>
               <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
-                <a href="/">Register</a>
+                <Link to="/register">Register</Link>
               </li>
               <li className="ml-6 my-1 sm:my-0 hover:text-primary smooth">
                 <Link to="/login">Login</Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <a href="/">Offers</a>
               </li>
               <li className="my-1 sm:my-0 px-6 smooth text-white">
-                <a href="/">Register</a>
+                <Link to="/register">Register</Link>
               </li>
               <li className="my-1 sm:my-0 px-6 smooth text-white">
                 <Link to="/login">Login</Link>
