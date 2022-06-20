@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import auth from "../../../firebase.init.js";
 import { addproduct } from "../../../store/CartSlice/CartSlice.js";
 import Loading from "../Shared/Loading.jsx";
-
+import axios from "axios";
 const ProductCart = ({ pizza }) => {
   const [user, loading] = useAuthState(auth);
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const ProductCart = ({ pizza }) => {
     return <Loading />;
   }
 
-  const addItem = (item) => {
+  const addItem = async (item) => {
     const newItem = {
       productId: item._id,
       email: user?.email,
@@ -25,6 +25,14 @@ const ProductCart = ({ pizza }) => {
       quantity: 1,
       size: item.size,
     };
+    await axios
+      .post("http://localhost:5000/user/addtocart", newItem)
+      .then((res) => {
+        if(res.data.status){
+          
+        }
+      });
+
     dispatch(addproduct(newItem));
   };
 

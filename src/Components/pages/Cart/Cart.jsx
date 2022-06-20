@@ -14,7 +14,7 @@ const Cart = () => {
     <section className="container">
       {userOrders.map((order) => (
         <div
-          key={order._id}
+          key={order.productId}
           className=" flex py-2 my-6 rounded-md shadow-md justify-between items-center"
         >
           <div className="w-1/3">
